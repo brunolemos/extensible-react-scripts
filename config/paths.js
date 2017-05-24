@@ -135,6 +135,9 @@ module.exports = (paths => {
     }
 
     console.log(chalk.yellow('[extensible-react-scripts] Extending paths...'));
-    return extender(paths, process.env.NODE_ENV === 'development')
+    return extender(
+      paths,
+      { isDevelopment: process.env.NODE_ENV === 'development' }
+    )
   }
 })(module.exports)

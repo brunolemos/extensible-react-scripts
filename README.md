@@ -32,7 +32,7 @@ Edit the `cra.config.js` file generated at the root of the project.
 
 ```js
 module.exports = {
-  webpack: function(webpackConfig, isDevelopment) {
+  webpack: function(webpackConfig, { isDevelopment }) {
     // modify webpack config here
     const config = Object.assign({}, webpackConfig)
 
@@ -48,8 +48,8 @@ That's it!
 
 | Config | Format | Return type |
 | ------ | ------ | ---- |
-| [paths](config/paths.js#L52-L66)  | `function(paths, isDevelopment)` | Object |
-| [webpack](config/webpack.config.dev.js#L38)  | `function(webpackConfig, isDevelopment)` | Object |
+| [paths](config/paths.js#L52-L66)  | `function(paths, { isDevelopment })` | Object |
+| [webpack](config/webpack.config.dev.js#L38)  | `function(webpackConfig, { isDevelopment })` | Object |
 
 ## Versioning
 

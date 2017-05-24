@@ -297,6 +297,6 @@ module.exports = (webpackConfig => {
     }
 
     console.log(chalk.yellow('[extensible-react-scripts] Extending webpack config...'));
-    return extender(webpackConfig, false)
+    return extender(webpackConfig, { isDevelopment: false })
   }
 })(module.exports)
