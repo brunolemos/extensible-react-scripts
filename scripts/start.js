@@ -36,7 +36,7 @@ const {
 } = require('react-dev-utils/WebpackDevServerUtils');
 const openBrowser = require('react-dev-utils/openBrowser');
 const paths = require('../config/paths');
-const config = require('../config/webpack.config.dev');
+let config = require('../config/webpack.config.dev');
 const createDevServerConfig = require('../config/webpackDevServer.config');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
@@ -59,6 +59,7 @@ choosePort(HOST, DEFAULT_PORT)
       // We have not found a port.
       return;
     }
+
     const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
     const appName = require(paths.appPackageJson).name;
     const urls = prepareUrls(protocol, HOST, port);
@@ -81,6 +82,12 @@ choosePort(HOST, DEFAULT_PORT)
       if (isInteractive) {
         clearConsole();
       }
+
+      if(fs.existsSync(paths.webpackConfig)) {
+        console.log(chalk.yellow('Using a modified webpack config.'));
+        config = require(paths.webpackConfig)(config, true);
+      }
+
       console.log(chalk.cyan('Starting the development server...\n'));
       openBrowser(urls.localUrlForBrowser);
     });
