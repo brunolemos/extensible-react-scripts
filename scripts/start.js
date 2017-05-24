@@ -83,9 +83,9 @@ choosePort(HOST, DEFAULT_PORT)
         clearConsole();
       }
 
-      if(fs.existsSync(paths.webpackConfig)) {
+      if(fs.existsSync(paths.craConfig)) {
         console.log(chalk.yellow('Using a modified webpack config.'));
-        config = require(paths.webpackConfig)(config, true);
+        config = require(paths.craConfig).webpack(config, true);
       }
 
       console.log(chalk.cyan('Starting the development server...\n'));

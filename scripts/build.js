@@ -101,9 +101,9 @@ measureFileSizesBeforeBuild(paths.appBuild)
 function build(previousFileSizes) {
   console.log('Creating an optimized production build...');
 
-  if(fs.existsSync(paths.webpackConfig)) {
+  if(fs.existsSync(paths.craConfig)) {
     console.log(chalk.yellow('Using a modified webpack config...'));
-    config = require(paths.webpackConfig)(config, false);
+    config = require(paths.craConfig).webpack(config, false);
   }
 
   let compiler = webpack(config);

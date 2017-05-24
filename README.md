@@ -18,25 +18,27 @@ Allow users to extend webpack configuration.
 create-react-app APP_NAME_HERE --scripts-version extensible-react-scripts
 ```
 
-Edit the `webpack.config.js` file generated at the root of the project.
+Edit the `cra.config.js` file generated at the root of the project.
 
 #### Existing projects
 
 - `yarn remove react-scripts`
 - `yarn add --dev extensible-react-scripts`
-- Create a file named `webpack.config.js` at the root of the project (outside `src` folder) exporting a function like below:
+- Create a file named `cra.config.js` at the root of the project (outside `src` folder) exporting a function like below:
 
 
 
-##### webpack.config.js example
+##### cra.config.js example
 
 ```js
-module.exports = function(webpackConfig, isDevelopment) {
-  // modify webpack
-  const config = Object.assign({}, webpackConfig)
+module.exports = {
+  webpack: function(webpackConfig, isDevelopment) {
+    // modify webpack config here
+    const config = Object.assign({}, webpackConfig)
 
-  // return modified version
-  return config
+    // return the modified version
+    return config
+  },
 }
 ```
 

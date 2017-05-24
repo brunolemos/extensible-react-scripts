@@ -1,0 +1,11 @@
+'use strict'
+
+module.exports = {
+  webpack: function(webpackConfig, isDevelopment) {
+    // modify webpack config here
+    const config = Object.assign({}, webpackConfig)
+
+    // return the modified version
+    return config
+  },
+}
