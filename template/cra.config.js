@@ -1,9 +1,9 @@
 'use strict'
 
 module.exports = {
-  paths: (paths, { isDevelopment }) => {
+  paths: (paths, { resolvePath, isDevelopment }) => {
     const sourcesToCompile = paths.sourcesToCompile
-    sourcesToCompile.push('example/lib/to/compile/')
+    sourcesToCompile.push(resolvePath('../my/lib/to/compile/'))
 
     return Object.assign({}, paths, { sourcesToCompile })
   },

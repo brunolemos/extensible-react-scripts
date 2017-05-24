@@ -48,7 +48,7 @@ That's it!
 
 | Config | Format | Return type |
 | ------ | ------ | ---- |
-| [paths](config/paths.js#L52-L66)  | `function(paths, { isDevelopment })` | Object |
+| [paths](config/paths.js#L52-L66)  | `function(paths, { resolvePath, isDevelopment })` | Object |
 | [webpack](config/webpack.config.dev.js#L38)  | `function(webpackConfig, { isDevelopment })` | Object |
 
 ## Versioning
