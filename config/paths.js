@@ -10,6 +10,7 @@
 // @remove-on-eject-end
 'use strict';
 
+const chalk = require('chalk');
 const path = require('path');
 const fs = require('fs');
 const url = require('url');
@@ -120,3 +121,17 @@ if (
   };
 }
 // @remove-on-eject-end
+
+module.exports = (paths => {
+  if(fs.existsSync(paths.craConfig)) {
+    const extenders = require(paths.craConfig)
+
+    const extender = extenders.paths
+    if (!extender) {
+      return paths
+    }
+
+    console.log(chalk.yellow('[extensible-react-scripts] Extending paths...'));
+    return extender(paths, process.env.NODE_ENV === 'development')
+  }
+})(module.exports)

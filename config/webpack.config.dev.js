@@ -11,6 +11,8 @@
 'use strict';
 
 const autoprefixer = require('autoprefixer');
+const chalk = require('chalk');
+const fs = require('fs-extra');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -284,3 +286,17 @@ module.exports = {
     hints: false,
   },
 };
+
+module.exports = (webpackConfig => {
+  if(fs.existsSync(paths.craConfig)) {
+    const extenders = require(paths.craConfig)
+
+    const extender = extenders.webpack
+    if (!extender) {
+      return webpackConfig
+    }
+
+    console.log(chalk.yellow('[extensible-react-scripts] Extending webpack config...'));
+    return extender(webpackConfig, false)
+  }
+})(module.exports)

@@ -44,6 +44,13 @@ module.exports = {
 
 That's it!
 
+## Available configurations
+
+| Config | Format | Return type |
+| ------ | ------ | ---- |
+| [paths](config/paths.js#L52-L66)  | `function(paths, isDevelopment)` | Object |
+| [webpack](config/webpack.config.dev.js#L38)  | `function(webpackConfig, isDevelopment)` | Object |
+
 ## Versioning
 
 The version will be the same of the official `react-scripts`. Check the badge at the top of this file.

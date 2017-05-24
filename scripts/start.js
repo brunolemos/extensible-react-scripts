@@ -36,7 +36,7 @@ const {
 } = require('react-dev-utils/WebpackDevServerUtils');
 const openBrowser = require('react-dev-utils/openBrowser');
 const paths = require('../config/paths');
-let config = require('../config/webpack.config.dev');
+const config = require('../config/webpack.config.dev');
 const createDevServerConfig = require('../config/webpackDevServer.config');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
@@ -84,8 +84,7 @@ choosePort(HOST, DEFAULT_PORT)
       }
 
       if(fs.existsSync(paths.craConfig)) {
-        console.log(chalk.yellow('Using a modified webpack config.'));
-        config = require(paths.craConfig).webpack(config, true);
+        console.log(chalk.yellow('[extensible-react-scripts] Using extended configurations.'));
       }
 
       console.log(chalk.cyan('Starting the development server...\n'));
