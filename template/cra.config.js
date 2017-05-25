@@ -2,8 +2,9 @@
 
 module.exports = {
   paths: (paths, { resolvePath, isDevelopment }) => {
-    const sourcesToCompile = paths.sourcesToCompile
-    sourcesToCompile.push(resolvePath('../my/lib/to/compile/'))
+    const sourcesToCompile = paths.sourcesToCompile.concat([
+      resolvePath('../my/lib/to/compile/')
+    ])
 
     return Object.assign({}, paths, { sourcesToCompile })
   },
