@@ -1,6 +1,5 @@
 # Extensible React Scripts
-
-[![GitHub version](https://badge.fury.io/gh/brunolemos%2Fextensible-react-scripts.svg)](https://badge.fury.io/gh/brunolemos%2Fextensible-react-scripts)
+> react-scripts version: 1.0.6
 
 ## Why?
 
@@ -53,7 +52,7 @@ That's it!
 
 ## Versioning
 
-The version will be the same of the official `react-scripts`. Check the badge at the top of this file.
+The version will be the same of the official `react-scripts`. Check [package.json](package.json) or the top of this file.
 
 ## Inspired by
 
