@@ -18,7 +18,8 @@
     "utils"
   ],
   "bin": {
-    "react-scripts": "./bin/react-scripts.js"
+    "react-scripts": "./bin/react-scripts.js",
+    "extensible-react-scripts": "./bin/react-scripts.js"
   },
   "dependencies": {
     "autoprefixer": "7.1.0",
