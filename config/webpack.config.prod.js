@@ -25,6 +25,9 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
 
+const appDirectory = fs.realpathSync(process.cwd());
+const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
+
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
 const publicPath = paths.servedPath;
@@ -358,6 +361,6 @@ module.exports = (webpackConfig => {
     }
 
     console.log(chalk.yellow('[extensible-react-scripts] Extending webpack config...'));
-    return extender(webpackConfig, { isDevelopment: false })
+    return extender(webpackConfig, { isDevelopment: false, paths, resolveApp })
   }
 })(module.exports)
