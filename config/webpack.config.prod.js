@@ -374,15 +374,18 @@ module.exports = {
 };
 
 module.exports = (webpackConfig => {
-  if(fs.existsSync(paths.craConfig)) {
-    const extenders = require(paths.craConfig)
-
-    const extender = extenders.webpack
-    if (!extender) {
-      return webpackConfig
-    }
-
-    console.log(chalk.yellow('[extensible-react-scripts] Extending webpack config...'));
-    return extender(webpackConfig, { isDevelopment: false, paths, resolveApp })
+  if(!fs.existsSync(paths.craConfig)) {
+    console.log(chalk.red('[extensible-react-scripts] No cra.config.js file found. Not extending webpack config.'));
+    return webpackConfig
   }
+
+  const extenders = require(paths.craConfig)
+  const extender = extenders.webpack
+  if (!extender) {
+    console.log(chalk.yellow('[extensible-react-scripts] No webpack extender found on cra.config.js.'));
+    return webpackConfig
+  }
+
+  console.log(chalk.green('[extensible-react-scripts] Extending webpack config...'));
+  return extender(webpackConfig, { isDevelopment: false, paths, resolveApp })
 })(module.exports)
