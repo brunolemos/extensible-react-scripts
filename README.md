@@ -1,5 +1,5 @@
 # Extensible React Scripts
-> react-scripts version: 1.0.6
+> react-scripts version: 1.1.0
 
 ## Why?
 
