@@ -56,8 +56,6 @@ The version will be the same of the official `react-scripts`. Check [package.jso
 
 ## Related projects
 
-https://github.com/timarney/react-app-rewired
-
 [react-app-rewired](https://github.com/timarney/react-app-rewired) by [@timarney](https://github.com/timarney)
 
 [configurable-react-scripts](https://github.com/svrcekmichal/configurable-react-scripts) by [@svrcekmichal](https://github.com/svrcekmichal)
